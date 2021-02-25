@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Simple, easy-to-use scraping module for single webpages",
   "main": "src/Scraper.js",
-  "peerDependencies": {
+  "dependencies": {
     "node-fetch": "^2.6.1"
   },
   "scripts": {

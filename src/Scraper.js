@@ -1,6 +1,7 @@
 const EventEmitter = require('events');
-const nf = require(`node-fetch`);
-const parseTime = require(`${process.cwd()}/util/time/parseTime.js`);
+const fetch = require(`node-fetch`);
+const parseTime = require(`${process.cwd()}/util/parseTime.js`);
+const validProtocol = /^https?:$/;
 
 class Scraper extends EventEmitter
 {
@@ -23,7 +24,10 @@ class Scraper extends EventEmitter
 				throw e;
 			}
 		}
-
+		url = url.toString().toLowerCase();
+		const urlObj = new URL(url);
+		if(!validProtocol.test(urlObj.protocol)) throw new TypeError(`Only HTTP(S) protocols are supported`);
+		
 		this._url = url;
 		this._pollRate = pollRate;
 		this._lastResponse = null;
@@ -39,6 +43,9 @@ class Scraper extends EventEmitter
 
 	setURL(url)
 	{
+		url = url.toString().toLowerCase();
+		const urlObj = new URL(url);
+		if(!validProtocol.test(urlObj.protocol)) throw new TypeError(`Only HTTP(S) protocols are supported`);
 		this._url = url;
 	}
 
@@ -77,7 +84,7 @@ class Scraper extends EventEmitter
 	{
 		this._pendingAt = Date.now() + this._pending++;
 		const pendingID = this._pendingAt;
-		nf(this._url).then(response =>
+		fetch(this._url).then(response =>
 		{
 			this._pending--;
 			if(this._pendingAt !== pendingID) return;

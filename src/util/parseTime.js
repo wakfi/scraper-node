@@ -1,4 +1,4 @@
-const isTimeFormat = require(`${process.cwd()}/util/time/isTimeFormat.js`);
+const isTimeFormat = require(`./isTimeFormat.js`);
 
 const numberRegDef = '(-?(?:\\d+|0b[01]+|0o[0-7]+|\\d+(?:\\.\\d+)?e-?\\d+|0x[\\dabcedf]+))';
 const yearReg = new RegExp(numberRegDef+'y','i');

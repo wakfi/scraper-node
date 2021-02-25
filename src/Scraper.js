@@ -1,6 +1,6 @@
 const EventEmitter = require('events');
 const fetch = require(`node-fetch`);
-const parseTime = require(`${process.cwd()}/util/parseTime.js`);
+const parseTime = require(`./util/parseTime.js`);
 const validProtocol = /^https?:$/;
 
 class Scraper extends EventEmitter

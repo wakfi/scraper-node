@@ -60,7 +60,7 @@ class Scraper extends EventEmitter
 		} catch(e) {
 			if (e instanceof TypeError) 
 			{
-				throw new TypeError(`pollRate must be a time representation: "${pollRate}" could not be interpreted as a time`);
+				throw new TypeError(`pollRate must represent a duration: "${pollRate}" could not be interpreted as a time duration`);
 			} else {
 				throw e;
 			}
@@ -69,6 +69,7 @@ class Scraper extends EventEmitter
 
 	resume()
 	{
+		if(this._timer !== null) return;
 		this._timer = setInterval(this._scrape.bind(this), this._pollRate);
 	}
 
@@ -94,7 +95,7 @@ class Scraper extends EventEmitter
 		.catch(e =>
 		{
 			this._pending--;
-			this.emit('scrapeError', e);
+			this.emit('error', e);
 		});
 	}
 }

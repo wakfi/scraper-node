@@ -78,4 +78,4 @@ The string "2h 30m 59s" would represent 2 hours, 30 minutes, and 59 seconds; whe
 
 ## License
 Licensed under MIT  
-Copyright (c) 2020 Walker Gray
+Copyright (c) 2021 Walker Gray

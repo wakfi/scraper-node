@@ -1,0 +1,22 @@
+{
+  "name": "scraper-node",
+  "version": "1.0.0",
+  "description": "Simple, easy-to-use scraping module for single webpages",
+  "main": "src/Scraper.js",
+  "peerDependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wakfi/scraper-node.git"
+  },
+  "author": "Walker Gray <walkergraydev@outlook.com> (https://www.walkergray.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wakfi/scraper-node/issues"
+  },
+  "homepage": "https://github.com/wakfi/scraper-node#readme"
+}
